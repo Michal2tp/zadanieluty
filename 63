@@ -1,0 +1,26 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+const int SIZE = 1000;
+string tab[SIZE];
+void y1(){
+  cout << "Zadanie:" << endl;
+  int length;
+  string x1, x2;
+  for (int i = 0; i < SIZE; i++) {
+    length = tab[i].length();
+    if (length % 2 != 0) continue;
+    x1 = tab[i].substr(0, length / 2);
+    x2 = tab[i].substr(length / 2, length / 2);
+    if (x1 == x2) {
+      cout << tab[i] << endl;
+    }
+  }
+}
+
+int main() {
+  ifstream in("ciagi.txt");
+  for (int i = 0; i < SIZE; i++) in >> tab[i];
+  in.close();
+  y1();
+}
